@@ -1,8 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:secondhandapplication/auth/register.dart';
+import 'package:secondhandapplication/globall.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
+
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,10 +15,6 @@ class LoginPage extends StatefulWidget {
 
   static TextEditingController? user;
   static TextEditingController? password;
-
-
-
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -31,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
  double getDeviceHeight() {
-    return SizerUtil.deviceType == DeviceType.mobile ? 10.h : 7.h;
+    return Globall.getDeviceHeight() == DeviceType.mobile ? 10.h : 7.h;
   }
 
   void changeOpacity() {
@@ -55,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
 backgroundColor: Colors.brown[100],
         body: Center(
-        child: Container(
+        child: SingleChildScrollView(
           // color: Colors.brown,
           child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
